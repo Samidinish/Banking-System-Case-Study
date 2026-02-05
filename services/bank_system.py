@@ -1,4 +1,3 @@
-# services/bank_system.py
 import logging
 from models.customer import Customer
 from models.account import Account

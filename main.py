@@ -3,9 +3,9 @@ from db.base import Base
 
 import models.customer
 import models.account
-import models.loan          # 👈 REQUIRED
-import models.credit_card   # 👈 REQUIRED
-import models.employee      # 👈 REQUIRED
+import models.loan          
+import models.credit_card   
+import models.employee     
 
 
 def init_db():
