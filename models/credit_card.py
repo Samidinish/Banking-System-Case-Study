@@ -1,7 +1,3 @@
-"""
-Credit Card model.
-"""
-
 from sqlalchemy import Column, Integer, Float
 from db.base import Base
 

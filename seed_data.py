@@ -10,9 +10,6 @@ def seed_data():
     session = get_session()
 
     try:
-        # -------------------------
-        # Customers
-        # -------------------------
         customer1 = Customer(
             first_name="John",
             last_name="Doe",
@@ -31,30 +28,19 @@ def seed_data():
             address="789 Pine Rd, TX"
         )
 
-        # -------------------------
-        # Accounts
-        # -------------------------
         account1 = Account(account_type="Checking", balance=1500, customer=customer1)
         account2 = Account(account_type="Savings", balance=5000, customer=customer1)
 
         account3 = Account(account_type="Checking", balance=2200, customer=customer2)
         account4 = Account(account_type="Savings", balance=8000, customer=customer3)
 
-        # -------------------------
-        # Loans
-        # -------------------------
         loan1 = Loan(amount=10000, interest_rate=0.05)
         loan2 = Loan(amount=20000, interest_rate=0.07)
 
-        # -------------------------
-        # Credit Cards
-        # -------------------------
+    
         card1 = CreditCard(limit=5000)
         card2 = CreditCard(limit=10000)
 
-        # -------------------------
-        # Employees
-        # -------------------------
         employee1 = Employee(
             first_name="Michael",
             last_name="Scott",
@@ -69,9 +55,6 @@ def seed_data():
             department="Customer Service"
         )
 
-        # -------------------------
-        # Persist everything
-        # -------------------------
         session.add_all([
             customer1, customer2, customer3,
             account1, account2, account3, account4,

@@ -1,17 +1,9 @@
-"""
-Employee model.
-
-Represents a bank employee such as a teller, manager, or loan officer.
-"""
-
 from sqlalchemy import Column, Integer, String
 from db.base import Base
 
 
 class Employee(Base):
-    """
-    Employee entity mapped to the employees table.
-    """
+  
 
     __tablename__ = "employees"
 
