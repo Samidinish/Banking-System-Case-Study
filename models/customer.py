@@ -2,6 +2,7 @@ from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 from db.base import Base
 
+
 class Customer(Base):
     __tablename__ = "customers"
 
@@ -11,3 +12,9 @@ class Customer(Base):
     address = Column(String, nullable=False)
 
     accounts = relationship("Account", back_populates="customer")
+
+    def add_account(self, account):
+        self.accounts.append(account)
+
+    def get_accounts(self):
+        return self.accounts

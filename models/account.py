@@ -2,6 +2,7 @@ from sqlalchemy import Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import relationship
 from db.base import Base
 
+
 class Account(Base):
     __tablename__ = "accounts"
 
@@ -11,3 +12,16 @@ class Account(Base):
     customer_id = Column(Integer, ForeignKey("customers.id"))
 
     customer = relationship("Customer", back_populates="accounts")
+
+    def deposit(self, amount: float):
+        if amount <= 0:
+            raise ValueError("Deposit amount must be positive")
+        self.balance = (self.balance or 0) + amount
+
+    def withdraw(self, amount: float):
+        if amount > self.balance:
+            raise ValueError("Insufficient balance")
+        self.balance -= amount
+
+    def get_balance(self):
+        return self.balance
